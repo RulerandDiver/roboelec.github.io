@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --robo-teal: #0d7377;
+  --robo-teal-light: #14a3a8;
+  --robo-amber: #e8590c;
+  --robo-amber-light: #ffa94d;
+  --robo-dark: #0a1628;
+  --robo-grid: rgba(13, 115, 119, 0.06);
+  --robo-glow: rgba(13, 115, 119, 0.4);
+  --robo-glow-amber: rgba(232, 89, 12, 0.35);
+}
+
+/* ============================================
+   1. GRID BLUEPRINT BACKGROUND
+   ============================================ */
+#body-wrap,
+body {
+  background-image:
+    linear-gradient(var(--robo-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--robo-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-color: #f4f7fa;
+}
+
+[data-theme="dark"] #body-wrap,
+[data-theme="dark"] body {
+  background-image:
+    linear-gradient(rgba(20, 163, 168, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 163, 168, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-color: #0f1923;
+}
+
+/* ============================================
+   2. HERO / TOP IMAGE OVERLAY
+   ============================================ */
+#page-header {
+  background-color: var(--robo-dark) !important;
+}
+
+#page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(20, 163, 168, 0.08) 49px,
+      rgba(20, 163, 168, 0.08) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 49px,
+      rgba(20, 163, 168, 0.08) 49px,
+      rgba(20, 163, 168, 0.08) 50px
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+#page-header #site-info {
+  position: relative;
+  z-index: 1;
+}
+
+#page-header.full_page {
+  background: linear-gradient(135deg, #0a1628 0%, #0d3b3e 40%, #0d7377 70%, #0a1628 100%) !important;
+}
+
+/* Animated scan line across the hero */
+#page-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(20, 163, 168, 0.04) 50%, transparent 100%);
+  animation: scanline 8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(200%); }
+}
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================ */
+#site-title {
+  font-family: 'Inter', 'JetBrains Mono', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(20, 163, 168, 0.5), 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#subtitle {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  text-shadow: 0 0 20px rgba(20, 163, 168, 0.3);
+}
+
+#subtitle::before {
+  content: '> ';
+  color: var(--robo-amber-light);
+  font-weight: 700;
+}
+
+code, pre, .highlight {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   4. ARTICLE CARDS – "Control Panel" Style
+   ============================================ */
+#recent-posts > .recent-post-item {
+  border: 1px solid rgba(13, 115, 119, 0.12);
+  border-radius: 6px !important;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] #recent-posts > .recent-post-item {
+  background: rgba(15, 25, 35, 0.85) !important;
+  border-color: rgba(20, 163, 168, 0.15);
+}
+
+#recent-posts > .recent-post-item:hover {
+  box-shadow:
+    0 0 20px var(--robo-glow),
+    0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--robo-teal);
+}
+
+#recent-posts > .recent-post-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--robo-teal), var(--robo-teal-light), var(--robo-amber));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+#recent-posts > .recent-post-item:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   5. SIDEBAR CARDS – Tech Panel
+   ============================================ */
+.card-widget {
+  border-radius: 6px !important;
+  border: 1px solid rgba(13, 115, 119, 0.1) !important;
+  border-top: 3px solid var(--robo-teal) !important;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.88) !important;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .card-widget {
+  background: rgba(15, 25, 35, 0.88) !important;
+  border-color: rgba(20, 163, 168, 0.15) !important;
+  border-top-color: var(--robo-teal-light) !important;
+}
+
+.card-widget:hover {
+  border-top-color: var(--robo-amber) !important;
+  box-shadow: 0 2px 15px rgba(13, 115, 119, 0.12);
+}
+
+/* Author card special styling */
+#card-info-btn {
+  background: linear-gradient(135deg, var(--robo-teal), var(--robo-teal-light)) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  transition: all 0.3s ease;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+}
+
+#card-info-btn:hover {
+  background: linear-gradient(135deg, var(--robo-amber), var(--robo-amber-light)) !important;
+  box-shadow: 0 0 15px var(--robo-glow-amber);
+  transform: scale(1.03);
+}
+
+/* ============================================
+   6. TAG CLOUD – LED Colors
+   ============================================ */
+.card-tag-cloud a {
+  transition: all 0.25s ease !important;
+  border-radius: 3px !important;
+  padding: 2px 8px !important;
+}
+
+.card-tag-cloud a:hover {
+  background: var(--robo-teal) !important;
+  color: #fff !important;
+  box-shadow: 0 0 8px var(--robo-glow);
+}
+
+/* ============================================
+   7. LINKS – Amber Hover
+   ============================================ */
+.post-content a:not(.btn):not([class*="tag"]) {
+  color: var(--robo-teal);
+  border-bottom: 1px dashed rgba(13, 115, 119, 0.3);
+  transition: all 0.25s ease;
+}
+
+.post-content a:not(.btn):not([class*="tag"]):hover {
+  color: var(--robo-amber) !important;
+  border-bottom-color: var(--robo-amber);
+}
+
+/* ============================================
+   8. SCROLLBAR – Tech Style
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--robo-teal), var(--robo-teal-light));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--robo-teal-light), var(--robo-amber));
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+/* ============================================
+   9. FOOTER – Circuit Trace
+   ============================================ */
+#footer {
+  background: linear-gradient(135deg, var(--robo-dark) 0%, #0d3b3e 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(20, 163, 168, 0.06) 39px,
+      rgba(20, 163, 168, 0.06) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(20, 163, 168, 0.06) 39px,
+      rgba(20, 163, 168, 0.06) 40px
+    );
+  pointer-events: none;
+}
+
+#footer #footer-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   10. NAVIGATION BAR
+   ============================================ */
+#nav {
+  backdrop-filter: blur(12px);
+  font-family: 'Inter', sans-serif !important;
+}
+
+#nav.fixed {
+  background: rgba(10, 22, 40, 0.92) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+#nav a {
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   11. RIGHT SIDE BUTTONS
+   ============================================ */
+#rightside > div > button,
+#rightside > div > a {
+  border-radius: 6px !important;
+  transition: all 0.3s ease;
+}
+
+#rightside > div > button:hover,
+#rightside > div > a:hover {
+  box-shadow: 0 0 12px var(--robo-glow);
+}
+
+/* ============================================
+   12. POST PAGE ENHANCEMENTS
+   ============================================ */
+.post-copyright {
+  border-left: 3px solid var(--robo-teal) !important;
+  background: rgba(13, 115, 119, 0.04) !important;
+  border-radius: 0 6px 6px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 4px solid var(--robo-amber) !important;
+  background: rgba(232, 89, 12, 0.04) !important;
+  border-radius: 0 6px 6px 0;
+}
+
+[data-theme="dark"] blockquote {
+  background: rgba(232, 89, 12, 0.08) !important;
+}
+
+/* Table styling */
+table thead {
+  background: linear-gradient(135deg, var(--robo-teal), var(--robo-teal-light)) !important;
+  color: #fff;
+}
+
+table thead th {
+  color: #fff !important;
+}
+
+/* ============================================
+   13. PAGINATION
+   ============================================ */
+.pagination .page-number.current {
+  background: linear-gradient(135deg, var(--robo-teal), var(--robo-teal-light)) !important;
+  box-shadow: 0 0 10px var(--robo-glow);
+}
+
+/* ============================================
+   14. SELECTION COLOR
+   ============================================ */
+::selection {
+  background: var(--robo-teal) !important;
+  color: #fff !important;
+}
+
+/* ============================================
+   15. ANIMATED CIRCUIT NODES (Decorative)
+   ============================================ */
+@keyframes pulse-node {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.card-widget .item-headline i {
+  color: var(--robo-amber) !important;
+  animation: pulse-node 3s ease-in-out infinite;
+}
