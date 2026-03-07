@@ -12,21 +12,21 @@ document.addEventListener('DOMContentLoaded', function () {
     lrcType: 0,
     audio: [
       {
-        name: 'Synthwave Dreams',
-        artist: 'Alejandro Magaña (A.M.)',
-        url: 'https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/M0gSjhmYRoCbs98GRf5ZPg2BVkWeVhBNAiLbGRlb.mp3',
+        name: 'Chill Abstract Intention',
+        artist: 'Coma-Media',
+        url: 'https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3',
         cover: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&q=80'
       },
       {
-        name: 'Electronic Sunrise',
-        artist: 'Kai Engel',
-        url: 'https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/nSaq2Y9wR2TUfmMla7k7hwxSYEkmtALuG9CTViAd.mp3',
+        name: 'Lofi Study',
+        artist: 'FASSounds',
+        url: 'https://cdn.pixabay.com/audio/2022/05/13/audio_c2eb1d3c22.mp3',
         cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&q=80'
       },
       {
-        name: 'Digital Ambient',
-        artist: 'Scott Buckley',
-        url: 'https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/H0YSaDZsT0iBiYz2tKXOYQR1OEvbwDMbyWblbWe7.mp3',
+        name: 'Tech House Vibes',
+        artist: 'Lexin_Music',
+        url: 'https://cdn.pixabay.com/audio/2022/03/10/audio_4e1b364e5f.mp3',
         cover: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=300&q=80'
       }
     ]
