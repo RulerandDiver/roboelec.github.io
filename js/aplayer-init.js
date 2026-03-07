@@ -12,22 +12,40 @@ document.addEventListener('DOMContentLoaded', function () {
     lrcType: 0,
     audio: [
       {
-        name: 'Chill Abstract Intention',
-        artist: 'Coma-Media',
-        url: 'https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3',
-        cover: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&q=80'
+        name: '天空之城',
+        artist: '久石让',
+        url: 'https://music.163.com/song/media/outer/url?id=427570778.mp3',
+        cover: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&q=80'
       },
       {
-        name: 'Lofi Study',
-        artist: 'FASSounds',
-        url: 'https://cdn.pixabay.com/audio/2022/05/13/audio_c2eb1d3c22.mp3',
-        cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&q=80'
+        name: '千与千寻 - 永远同在',
+        artist: '久石让',
+        url: 'https://music.163.com/song/media/outer/url?id=412902239.mp3',
+        cover: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&q=80'
       },
       {
-        name: 'Tech House Vibes',
-        artist: 'Lexin_Music',
-        url: 'https://cdn.pixabay.com/audio/2022/03/10/audio_4e1b364e5f.mp3',
-        cover: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=300&q=80'
+        name: '龙猫',
+        artist: '久石让',
+        url: 'https://music.163.com/song/media/outer/url?id=745956.mp3',
+        cover: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=300&q=80'
+      },
+      {
+        name: '晴天',
+        artist: '周杰伦',
+        url: 'https://music.163.com/song/media/outer/url?id=186016.mp3',
+        cover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80'
+      },
+      {
+        name: '稻香',
+        artist: '周杰伦',
+        url: 'https://music.163.com/song/media/outer/url?id=185811.mp3',
+        cover: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=300&q=80'
+      },
+      {
+        name: '七里香',
+        artist: '周杰伦',
+        url: 'https://music.163.com/song/media/outer/url?id=185868.mp3',
+        cover: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=300&q=80'
       }
     ]
   });
